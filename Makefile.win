@@ -1,0 +1,32 @@
+# Project: 项目3
+# Makefile created by Dev-C++ 6.5
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o func.o
+LINKOBJ  = main.o func.o
+LIBS     = -L"S:/Program Files/Dev-Cpp/MinGW32/lib" -L"S:/Program Files/Dev-Cpp/MinGW32/i686-w64-mingw32/lib" -static-libstdc++ -static-libgcc -g3
+INCS     = -I"S:/Program Files/Dev-Cpp/MinGW32/include" -I"S:/Program Files/Dev-Cpp/MinGW32/i686-w64-mingw32/include" -I"S:/Program Files/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.2.0/include" -I"S:/Program Files/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.2.0/include-fixed"
+CXXINCS  = -I"S:/Program Files/Dev-Cpp/MinGW32/include" -I"S:/Program Files/Dev-Cpp/MinGW32/i686-w64-mingw32/include" -I"S:/Program Files/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.2.0/include" -I"S:/Program Files/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.2.0/include-fixed" -I"S:/Program Files/Dev-Cpp/MinGW32/include/c++/10.2.0" -I"S:/Program Files/Dev-Cpp/MinGW32/include/c++/10.2.0/i686-w64-mingw32" -I"S:/Program Files/Dev-Cpp/MinGW32/include/c++/10.2.0/backward"
+BIN      = 项目3.exe
+CXXFLAGS = $(CXXINCS) -Wall -Wextra -g3
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=gbk
+CFLAGS   = $(INCS) -Wall -Wextra -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c func.h
+	$(CC) -c main.c -o main.o $(CFLAGS) 
+
+func.o: func.c func.h
+	$(CC) -c func.c -o func.o $(CFLAGS) 
