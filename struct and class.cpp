@@ -1,4 +1,5 @@
 #include<stdio.h>
+//struct 和 class的区别 
 class p{
 	int b;
 }; 
